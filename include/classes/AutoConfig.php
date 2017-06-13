@@ -5,6 +5,7 @@ class AutoConfig{
 	protected static $_default = '';
 	
 	protected $email = false;
+	protected $type = false;
 	protected $user = false;
 	protected $host = false;
 

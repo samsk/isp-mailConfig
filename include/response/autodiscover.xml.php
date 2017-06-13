@@ -1,5 +1,29 @@
 <?php echo '<?xml version="1.0" encoding="utf-8" ?>'; ?>
 
+<?php
+	if (defined('EXCHANGE_URL') && $this->type == "mobilesync") {
+?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006">
+    <Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006">
+        <User>
+            <DisplayName><?php echo $this->user['name'] ?></DisplayName>
+            <EMailAddress><?php echo $this->user['login'] ?></EMailAddress>
+        </User>
+        <Action>
+            <Settings>
+                <Server>
+                    <Type>MobileSync</Type>
+                    <Url><?php echo EXCHANGE_URL ?></Url>
+                    <Name><?php echo SERVICE_NAME ?></Name>
+                 </Server>
+            </Settings>
+        </Action>
+    </Response>
+</Autodiscover>
+
+<?php
+	} else {
+?>
 <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006">
     <Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
         <Account>
@@ -40,3 +64,7 @@
         </Account>
     </Response>
 </Autodiscover>
+
+<?php
+	}
+?>
