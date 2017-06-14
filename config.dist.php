@@ -8,4 +8,8 @@ define('SOAP_URI', 'https://SERVER.TLD:8080/remote/');
 // About your service
 define('SERVICE_NAME', 'My Mail Service');
 define('SERVICE_SHORT', 'MyMail');
+
+// MobileSync
+define('EXCHANGE_URL', 'https://SERVER.TLD/Microsoft-Server-ActiveSync');
+
 ?>
